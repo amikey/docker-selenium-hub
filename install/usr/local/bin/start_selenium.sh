@@ -1,31 +1,16 @@
 #!/bin/bash
 
-USAGE="Usage: start_selenium <PORT> <TIMEOUT> <MAXSESSION> <BROWSER>"
+USAGE="Usage: start_selenium <hubConfig>"
 
-PORT="$1"
-TIMEOUT="$2"
-MAXSESSION="$3"
-BROWSER="$4"
+NODE_CONFIG="$1"
 
-if [ "$PORT" = "" ]; then
-  PORT=4444
-fi
-
-if [ "$TIMEOUT" = "" ]; then
-  TIMEOUT=30
-fi
-
-if [ "$MAXSESSION" = "" ]; then
-  MAXSESSION=5
-fi
-
-if [ "$BROWSER" = "" ]; then
-  BROWSER="browserName=firefox,maxInstances=15"
+if [ "$HUB_CONFIG" = "" ]; then
+  echo "ERROR: Missing HUB_CONFIG." $USAGE
+  exit -1;
 fi
 
 export DISPLAY=:99
-/etc/init.d/xvfb start
 
-java -jar /var/lib/selenium/selenium-server-standalone-2.35.0.jar \
--role hub -port $PORT -timeout $TIMEOUT -maxSession $MAXSESSION \
--browser $BROWSER
+/etc/init.d/xvfb start
+java -jar /var/lib/selenium/selenium-server-standalone-2.42.2.jar \
+-role hub -hubConfig $HUB_CONFIG
