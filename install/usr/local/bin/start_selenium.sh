@@ -2,7 +2,7 @@
 
 USAGE="Usage: start_selenium <hubConfig>"
 
-NODE_CONFIG="$1"
+HUB_CONFIG="$1"
 
 if [ "$HUB_CONFIG" = "" ]; then
   echo "ERROR: Missing HUB_CONFIG." $USAGE
