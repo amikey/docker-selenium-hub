@@ -25,4 +25,4 @@ with open(HUB_CONFIG, 'w+') as f:
     f.close()
 
 # Start Supervisord in the foreground.
-run_service(['/usr/bin/supervisord', '-n'])
+os.execl('/usr/bin/supervisord', '-n')
