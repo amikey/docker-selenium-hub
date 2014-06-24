@@ -15,7 +15,7 @@ with open(HUB_CONFIG, 'r') as f:
     data = json.load(f)
     f.close()
 
-data["host"] = os.environ.get('SELENIUM_HUB_HOST', get_container_internal_address())
+# data["host"] = os.environ.get('SELENIUM_HUB_HOST', get_container_internal_address())
 data["port"] = os.environ.get('SELENIUM_HUB_PORT', 4444)
 data["timeout"] = os.environ.get('SELENIUM_HUB_TIMEOUT', 300000)
 data["maxSession"] = os.environ.get('SELENIUM_HUB_MAX_SESSION', 15)
