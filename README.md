@@ -8,7 +8,7 @@
 Either git pull and build this docker image yourself, or pull down the version you need from the docker index.
 
 ```sh
-$ sudo docker pull momer/selenium-hub:`version`
+$ sudo docker pull momer/docker-selenium-hub
 ```
 
 ## Start
