@@ -1,26 +1,22 @@
-## Docker image for Selenium Server
+## Docker image for Selenium Hub
 
 * [selenium](http://docs.seleniumhq.org/)
+* Forked from https://github.com/lzhang/docker-selenium
 
-### Installation
+## Install
 
-```sh
-$ sudo docker pull lzhang/selenium
-```
-
-### Usage
-
-Run the container:
+Either git pull and build this docker image yourself, or pull down the version you need from the docker index.
 
 ```sh
-$ SELENIUM_CONTAINER=$(sudo docker run -p 4444:4444 -d lzhang/selenium)
+$ sudo docker pull momer/selenium-hub:`version`
 ```
 
-Selenium server will be available on the host machine at port 4444. Web tests 
-will run via headless Firefox.
+## Start
 
-Shutting down the container:
+This was designed to work with [MaestroNG](https://github.com/signalfuse/maestro-ng). You can either set your container to use that, or, start this container by passing the necessary environment variables:
 
 ```sh
-$ sudo docker kill $SELENIUM_CONTAINER
+$ SELENIUM_CONTAINER=$(sudo docker run -e "SELENIUM_HUB_PORT=4444" -e "SELENIUM_HUB_TIMEOUT=300000" -e "SELENIUM_HUB_MAX_SESSION=15" -p 4444:4444 -d momer/selenium:`version`)
 ```
+
+Selenium hub is now available on port 4444 at the host and container.
