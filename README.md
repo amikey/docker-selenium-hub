@@ -8,8 +8,9 @@
 Either git pull and build this docker image yourself, or pull down the version you need from the docker index.
 
 ```sh
-$ sudo docker pull momer/docker-selenium-hub
+$ sudo docker pull momer/docker-selenium-hub:1.0.0
 ```
+(note: Replace 1.0.0 with up-to-date version if any, check [DockerHub page](https://registry.hub.docker.com/u/momer/docker-selenium-hub/tags/manage/) for more info about this image)
 
 ## Start
 
